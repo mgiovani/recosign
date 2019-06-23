@@ -21,4 +21,7 @@ for i in range(160, 925, altura_retangulo):
 
 for assinatura in assinaturas:
     cv.imshow("Assinatura", assinatura)
+    # Extração de cantos da assinatura
+    quinas = cv.cornerHarris(assinatura,2,3,0.04)
+    print("quinas: ", quinas)
     cv.waitKey(0)
