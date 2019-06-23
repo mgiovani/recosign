@@ -1,6 +1,10 @@
 import cv2 as cv
 
-imagem = cv.imread('../data/assinaturas.jpg')
+imagem = cv.imread('../data/assinaturas.jpg', 0)
+
+# Filtro para redução de ruídos
+imagem = cv.medianBlur(imagem, 3)
+imagem = cv.GaussianBlur(imagem, (9, 9), 0)
 
 # Redimensionamento
 proporcao = 700.0 / imagem.shape[1]
