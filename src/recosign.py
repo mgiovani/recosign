@@ -9,7 +9,12 @@ imagem_redimensionada = cv.resize(imagem, tamanho_novo, interpolation = cv.INTER
 cv.imshow("Imagem redimensionada", imagem_redimensionada)
 
 # Recorte
-recorte = imagem_redimensionada[74:160, 74:625]
-cv.imshow("Recorte da imagem", recorte)
+assinaturas = []
+altura_retangulo = 85
+assinaturas.append(imagem_redimensionada[74:160, 74:625])
+for i in range(160, 925, altura_retangulo):
+    assinaturas.append(imagem_redimensionada[i:i+altura_retangulo, 74:625])
 
-cv.waitKey(0)
+for assinatura in assinaturas:
+    cv.imshow("Assinatura", assinatura)
+    cv.waitKey(0)
