@@ -23,9 +23,11 @@ assinaturas = []
 altura_retangulo = 85
 assinaturas.append(imagem_redimensionada[76:158, 76:623])
 for i in range(160, 925, altura_retangulo):
-    assinaturas.append(imagem_redimensionada[i:i+altura_retangulo, 76:615])
+    assinaturas.append(imagem_redimensionada[i+5:i+altura_retangulo-5, 76:615])
 
 for assinatura in assinaturas:
+    cv.imshow("Assinatura cortada", assinatura)
+
     # Binarização da assinatura
     for i in range(assinatura.shape[0]):
         for j in range(assinatura.shape[1]):
@@ -33,13 +35,24 @@ for assinatura in assinaturas:
                 assinatura[i][j] = 0
             else:
                 assinatura[i][j] = 255
+    x1 = None
+    for j in range(assinatura.shape[1]):
+        for i in range(assinatura.shape[0]):
+            if (assinatura[i][j] != 255):
+                x1 = j
+                break
+        if x1 != None:
+            break
+    x2 = None
+    for j in range(assinatura.shape[1]-1, 0, -1):
+        for i in range(assinatura.shape[0]-1, 0, -1):
+            if (assinatura[i][j] != 255):
+                x2 = j
+                break
+        if x2 != None:
+            break
 
-    # Extração de cantos da assinatura
-    quinas = cv.cornerHarris(assinatura,2,3,0.04)
-    # Caracteristicas
-    for i in range(quinas.shape[0]):
-        media = np.sum(quinas[i])/quinas.shape[0]
+    assinatura = assinatura[0:assinatura.shape[0], x1:x2]
 
-    print(quinas)
-    cv.imshow("Imagem quina", quinas)
+    cv.imshow("Imagem quina", assinatura)
     cv.waitKey(0)
