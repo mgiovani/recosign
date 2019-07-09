@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 # shape 0 linha
 # shape 1 coluna
 import cv2 as cv
