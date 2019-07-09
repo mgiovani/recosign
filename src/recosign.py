@@ -7,7 +7,7 @@ import numpy as np
 # Visualizar a matriz completa no print
 np.set_printoptions(threshold=np.inf)
 
-imagem = cv.imread('../data/assinaturas.jpg', 0)
+imagem = cv.imread('../data/imagens/teste/04.jpg', 0)
 
 # Filtro para redução de ruídos
 imagem = cv.medianBlur(imagem, 3)
@@ -72,7 +72,10 @@ for assinatura in assinaturas:
         caracteristicas = caracteristicas[0:300]
 
     print(caracteristicas)
+    arq = open('../data/vetores/teste/vetores.txt', 'a')
+    arq.write(str(caracteristicas))
+    arq.write('\n')
 
     cv.imshow("Imagem quina", assinatura)
     cv.waitKey(0)
-    
+    arq.close()
