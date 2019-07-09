@@ -6,12 +6,6 @@ import knn
 
 knn = knn.Knn(3)
 
-for i in range(len(x_teste)):
-    x_teste[i] = x_teste[i][0:300]
-
-for i in range(len(x_treino)):
-    x_treino[i] = x_treino[i][0:300]
-
 x_treino = list(x_treino)
 x_teste = list(x_teste)
 
