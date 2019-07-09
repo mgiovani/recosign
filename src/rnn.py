@@ -8,11 +8,14 @@ from tensorflow.keras.layers import LSTM, Dropout, Dense
 
 from data import vetores, classes 
 
+for i in range(len(vetores)):
+    vetores[i] = vetores[i][0:300]
+
 x_treino, x_teste, y_treino, y_teste = train_test_split(vetores, classes, test_size=0.33, random_state=42)
-x_treino = minmax_scale(x_treino)
-x_teste = minmax_scale(x_teste)
-x_treino = x_treino.reshape(4, 300, -1)
-x_teste = x_teste.reshape(4, 300, -1)
+# x_treino = minmax_scale(x_treino)
+# x_teste = minmax_scale(x_teste)
+x_treino = x_treino.reshape(100, 300, -1)
+x_teste = x_teste.reshape(50, 300, -1)
 
 
 def rnn_model():
