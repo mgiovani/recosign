@@ -72,10 +72,10 @@ for assinatura in assinaturas:
         caracteristicas = caracteristicas[0:300]
 
     print(caracteristicas)
-    arq = open('../data/vetores/teste/vetores.txt', 'a')
-    arq.write(str(caracteristicas))
-    arq.write('\n')
+    # arq = open('../data/vetores/teste/vetores.txt', 'a')
+    # arq.write(str(caracteristicas))
+    # arq.write('\n')
 
     cv.imshow("Imagem quina", assinatura)
     cv.waitKey(0)
-    arq.close()
+    # arq.close()
