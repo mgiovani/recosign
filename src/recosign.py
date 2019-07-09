@@ -75,3 +75,4 @@ for assinatura in assinaturas:
 
     cv.imshow("Imagem quina", assinatura)
     cv.waitKey(0)
+    
