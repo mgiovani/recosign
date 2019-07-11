@@ -1,16 +1,9 @@
-from sklearn.model_selection import train_test_split
-from sklearn.metrics import classification_report, confusion_matrix  
-from data import x_teste, y_teste, x_treino, y_treino 
+from sklearn.metrics import classification_report, confusion_matrix
+from data import x_teste, y_teste, x_treino, y_treino
 import knn
 
 
 knn = knn.Knn(3)
-
-for i in range(len(x_teste)):
-    x_teste[i] = x_teste[i][0:300]
-
-for i in range(len(x_treino)):
-    x_treino[i] = x_treino[i][0:300]
 
 x_treino = list(x_treino)
 x_teste = list(x_teste)
