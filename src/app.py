@@ -1,6 +1,5 @@
-from sklearn.model_selection import train_test_split
-from sklearn.metrics import classification_report, confusion_matrix  
-from data import x_teste, y_teste, x_treino, y_treino 
+from sklearn.metrics import classification_report, confusion_matrix
+from data import x_teste, y_teste, x_treino, y_treino
 import knn
 
 

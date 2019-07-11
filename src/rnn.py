@@ -11,8 +11,8 @@ from data import x_treino, x_teste, y_treino, y_teste
 
 x_treino = minmax_scale(x_treino)
 x_teste = minmax_scale(x_teste)
-x_treino = x_treino.reshape(150, 300, -1)
-x_teste = x_teste.reshape(40, 300, -1)
+x_treino = x_treino.reshape(140, 300, -1)
+x_teste = x_teste.reshape(32, 300, -1)
 
 
 def rnn_model():
